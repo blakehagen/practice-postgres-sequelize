@@ -1,14 +1,12 @@
-angular.module('quickStartTemplate', ['ui.router']).config(function ($stateProvider, $urlRouterProvider) {
-
-  console.log('test');
+angular.module('pgPractice', ['ui.router']).config(function ($stateProvider, $urlRouterProvider) {
 
   $stateProvider
-    .state('example', {
-      url: '/example',
-      templateUrl: './app/features/example/exampleTmpl.html',
-      controller: 'exampleCtrl as example'
+    .state('home', {
+      url: '/',
+      templateUrl: './app/features/home/homeTmpl.html',
+      controller: 'homeCtrl as home'
     });
 
   $urlRouterProvider
-    .otherwise('/example');
+    .otherwise('/');
 });

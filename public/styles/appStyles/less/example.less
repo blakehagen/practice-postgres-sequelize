@@ -7,15 +7,60 @@ html, body {
   width: 100%;
 }
 
-.example {
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
+
+.page-wrap {
+  width: 100%;
+  border:1px solid transparent;
+}
+
+p {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.row {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 40px;
 }
 
-h1 {
-  color: rebeccapurple;
-  font-size: 40px;
-  font-weight: 100;
+.input-container {
+  display: flex;
+  flex-direction: column;
+  input {
+    width: 230px;
+    height: 40px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 100;
+    padding-left: 10px;
+    border:1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .submit-btn {
+    cursor: pointer;
+    background: #387EF5;
+    color: #FFF;
+    width: 230px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    margin-top: 10px;
+    p {
+      font-weight: 100;
+      font-size: 16px;
+    }
+  }
 }
+
+
+

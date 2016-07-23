@@ -30,7 +30,7 @@ module.exports = function () {
     templateCache: {
       file: 'templates.js',
       options: {
-        module: 'quickStartTemplate',
+        module: 'pgPractice',
         standAlone: false,
         root: './app'
       }

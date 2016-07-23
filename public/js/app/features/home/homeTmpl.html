@@ -1,16 +1,14 @@
 <section class="page-wrap">
-
   <section class="row">
     <div class="input-container">
-      <input type="text" placeholder="First Name">
-      <input type="text" placeholder="Last Name">
-      <input type="email" placeholder="E-mail Address">
-      <div class="submit-btn">
+      <input type="text" placeholder="First Name" ng-model="home.newUser.firstName">
+      <input type="text" placeholder="Last Name" ng-model="home.newUser.lastName">
+      <input type="email" placeholder="E-mail Address" ng-model="home.newUser.email">
+      <div class="submit-btn" ng-click="home.addUser()">
         <p>Submit</p>
       </div>
     </div>
   </section>
-
 </section>
 
 

@@ -9,7 +9,7 @@
                  placeholder="First Name"
                  name="firstName"
                  ng-model="home.newUser.firstName"
-                 ng-model-options="{debounce: 500}"
+                 ng-model-options="{debounce: 200}"
                  required>
           <div ng-show="!home.submitted" class="err" ng-messages="!userForm.firstName.$pristine && userForm.firstName.$error">
             <p ng-message="required">This field is required</p>
@@ -21,7 +21,7 @@
                  placeholder="Last Name"
                  name="lastName"
                  ng-model="home.newUser.lastName"
-                 ng-model-options="{debounce: 500}"
+                 ng-model-options="{debounce: 200}"
                  required>
           <div ng-show="!home.submitted" class="err" ng-messages="!userForm.lastName.$pristine && userForm.lastName.$error">
             <p ng-message="required">This field is required</p>
@@ -33,7 +33,7 @@
                  name="email"
                  placeholder="E-mail Address"
                  ng-model="home.newUser.email"
-                 ng-model-options="{debounce: 500}"
+                 ng-model-options="{debounce: 200}"
                  required>
           <div ng-show="!home.submitted" class="err" ng-messages="!userForm.email.$pristine && userForm.email.$error">
             <p ng-message="required">This field is required</p>

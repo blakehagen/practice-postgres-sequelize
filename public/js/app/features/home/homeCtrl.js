@@ -7,24 +7,21 @@ angular.module('pgPractice').controller('homeCtrl', function (mainService) {
   home.formError = false;
 
   home.addUser = function (isValid) {
-    home.submitted = true;
 
-    if(!isValid){
+    if (!isValid) {
       console.log('FORM ERROR');
       home.formError = true;
       return;
     }
+    home.submitted = true;
     home.formError = false;
-    console.log('home.newUser on service!', home.newUser);
+
     mainService.addNewUser(home.newUser);
     home.newUser.firstName = '';
-    home.newUser.lastName = '';
-    home.newUser.email = '';
+    home.newUser.lastName  = '';
+    home.newUser.email     = '';
 
   };
-
-
-
 
 
 });

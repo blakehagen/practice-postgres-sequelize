@@ -1,13 +1,55 @@
 <section class="page-wrap">
   <section class="row">
-    <div class="input-container">
-      <input type="text" placeholder="First Name" ng-model="home.newUser.firstName">
-      <input type="text" placeholder="Last Name" ng-model="home.newUser.lastName">
-      <input type="email" placeholder="E-mail Address" ng-model="home.newUser.email">
-      <div class="submit-btn" ng-click="home.addUser()">
-        <p>Submit</p>
+    <form name="userForm" novalidate>
+
+      <div class="input-container">
+
+        <div class="field-container">
+          <input type="text"
+                 placeholder="First Name"
+                 name="firstName"
+                 ng-model="home.newUser.firstName"
+                 ng-model-options="{debounce: 500}"
+                 required>
+          <div ng-show="!home.submitted" class="err" ng-messages="!userForm.firstName.$pristine && userForm.firstName.$error">
+            <p ng-message="required">This field is required</p>
+          </div>
+        </div>
+
+        <div class="field-container">
+          <input type="text"
+                 placeholder="Last Name"
+                 name="lastName"
+                 ng-model="home.newUser.lastName"
+                 ng-model-options="{debounce: 500}"
+                 required>
+          <div ng-show="!home.submitted" class="err" ng-messages="!userForm.lastName.$pristine && userForm.lastName.$error">
+            <p ng-message="required">This field is required</p>
+          </div>
+        </div>
+
+        <div class="field-container">
+          <input type="email"
+                 name="email"
+                 placeholder="E-mail Address"
+                 ng-model="home.newUser.email"
+                 ng-model-options="{debounce: 500}"
+                 required>
+          <div ng-show="!home.submitted" class="err" ng-messages="!userForm.email.$pristine && userForm.email.$error">
+            <p ng-message="required">This field is required</p>
+            <p ng-message="email">Valid email is required</p>
+          </div>
+        </div>
+
+        <div class="submit-btn" ng-click="home.addUser(userForm.$valid)">
+          <p>Submit</p>
+        </div>
+        <div ng-show="home.formError" class="err">
+          <p>Please Complete Form</p>
+        </div>
       </div>
-    </div>
+    </form>
+
   </section>
 </section>
 

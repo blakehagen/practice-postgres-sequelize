@@ -11,7 +11,7 @@ html, body {
 
 .page-wrap {
   width: 100%;
-  border:1px solid transparent;
+  border: 1px solid transparent;
 }
 
 p {
@@ -30,17 +30,16 @@ p {
 .input-container {
   display: flex;
   flex-direction: column;
-  input {
-    width: 230px;
-    height: 40px;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 100;
-    padding-left: 10px;
-    border:1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    &:last-of-type {
-      margin-bottom: 0;
+  .field-container {
+    height: 65px;
+    input {
+      width: 230px;
+      height: 40px;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 100;
+      padding-left: 10px;
+      border: 1px solid #CCC;
+      border-radius: 4px;
     }
   }
 
@@ -54,7 +53,6 @@ p {
     justify-content: center;
     align-items: center;
     border-radius: 4px;
-    margin-top: 10px;
     p {
       font-weight: 100;
       font-size: 16px;
@@ -62,5 +60,14 @@ p {
   }
 }
 
+.err {
+  p {
+    font-size: 10px;
+    font-weight: 100;
+    margin-top: 3px;
+    padding-left: 10px;
+    color: #ed6464;
+  }
+}
 
 

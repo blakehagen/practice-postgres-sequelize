@@ -1,4 +1,4 @@
-angular.module('pgPractice', ['ui.router']).config(function ($stateProvider, $urlRouterProvider) {
+angular.module('pgPractice', ['ui.router', 'ngMessages']).config(function ($stateProvider, $urlRouterProvider) {
 
   $stateProvider
     .state('home', {

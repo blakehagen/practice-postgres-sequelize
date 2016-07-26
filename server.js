@@ -10,6 +10,9 @@ require('./server/config/db.js')();
 const app = express();
 //
 // API TEST ROUTE //
+require('./server/routes/users.routes')(app);
+
+
 app.get('/api/v1/test', (req, res) => {
   res.status(200).send('Light \'em up! We good to go!');
 });

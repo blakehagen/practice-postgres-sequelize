@@ -3,25 +3,30 @@
 angular.module('pgPractice').controller('homeCtrl', function (mainService) {
   var home = this;
 
-  home.submitted = false;
-  home.formError = false;
+  home.submitted   = false;
+  home.formError   = false;
+  home.serverError = false;
+
 
   home.addUser = function (isValid) {
 
     if (!isValid) {
-      console.log('FORM ERROR');
       home.formError = true;
       return;
     }
     home.submitted = true;
     home.formError = false;
 
-    mainService.addNewUser(home.newUser);
-    home.newUser.firstName = '';
-    home.newUser.lastName  = '';
-    home.newUser.email     = '';
-
+    mainService.addNewUser(home.newUser).then(function (response) {
+      home.serverError       = false;
+      home.newUser.firstName = '';
+      home.newUser.lastName  = '';
+      home.newUser.email     = '';
+    })
+      .catch(function (err) {
+        home.serverError = true;
+      });
   };
 
 
-});
+}); // END CTRL //

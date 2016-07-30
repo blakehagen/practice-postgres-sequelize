@@ -1,7 +1,13 @@
-angular.module('pgPractice').service('mainService', function () {
+angular.module('pgPractice').service('mainService', function ($http) {
 
   this.addNewUser = function (newUser) {
-    console.log('newUser', newUser);
+    return $http({
+      method: 'POST',
+      url: '/api/v1/createUser',
+      data: newUser
+    }).then(function (response) {
+      return response.data;
+    });
   };
 
-});
+}); // END SERVICE //

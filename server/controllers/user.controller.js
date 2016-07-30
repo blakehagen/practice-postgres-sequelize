@@ -3,11 +3,14 @@ const models = require('../models/index');
 module.exports = {
 
   createUser: (req, res) => {
-    models.User.create(req.body).then(function (user) {
-      res.status(200).json(user);
-    }).catch(function (err) {
-      res.status(500).json(err);
-    })
+    models.User.isEmailUnique(req.body.email).then(() => {
+      models.User.create(req.body).then(user => {
+        res.status(200).json(user);
+      })
+    }).catch(err => {
+      console.log('err', err);
+      res.status(400).json({error: err});
+    });
   }
 
 

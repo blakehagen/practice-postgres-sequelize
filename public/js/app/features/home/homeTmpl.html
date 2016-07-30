@@ -3,7 +3,9 @@
     <form name="userForm" novalidate>
 
       <div class="input-container">
-
+        <div class="title">
+          <p>Register</p>
+        </div>
         <div class="field-container">
           <input type="text"
                  placeholder="First Name"
@@ -11,7 +13,8 @@
                  ng-model="home.newUser.firstName"
                  ng-model-options="{debounce: 200}"
                  required>
-          <div ng-show="!home.submitted" class="err" ng-messages="!userForm.firstName.$pristine && userForm.firstName.$error">
+          <div ng-show="!home.submitted" class="err"
+               ng-messages="!userForm.firstName.$pristine && userForm.firstName.$error">
             <p ng-message="required">This field is required</p>
           </div>
         </div>
@@ -23,7 +26,8 @@
                  ng-model="home.newUser.lastName"
                  ng-model-options="{debounce: 200}"
                  required>
-          <div ng-show="!home.submitted" class="err" ng-messages="!userForm.lastName.$pristine && userForm.lastName.$error">
+          <div ng-show="!home.submitted" class="err"
+               ng-messages="!userForm.lastName.$pristine && userForm.lastName.$error">
             <p ng-message="required">This field is required</p>
           </div>
         </div>
@@ -46,6 +50,9 @@
         </div>
         <div ng-show="home.formError" class="err">
           <p>Please Complete Form</p>
+        </div>
+        <div ng-if="home.serverError" class="err">
+          <p>Email already in use. Try again.</p>
         </div>
       </div>
     </form>

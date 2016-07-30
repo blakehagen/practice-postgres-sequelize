@@ -1,8 +1,9 @@
 'use strict';
 
+const BPromise = require('bluebird');
+
 module.exports = (sequelize, DataTypes) => {
-  // var models;
-  var User;
+  let User;
 
   User = sequelize.define('User', {
     firstName: DataTypes.STRING,
@@ -10,7 +11,21 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
   }, {
     tableName: 'users',
-    timestamps: false
+    timestamps: false,
+    classMethods: {
+      isEmailUnique(email) {
+        return User.find({
+          where: {
+            email: email
+          }
+        })
+          .then(user => {
+            if (user) {
+              return BPromise.reject(new Error('Account already registered with that email'));
+            }
+          });
+      },
+    }
   });
   return User;
 };

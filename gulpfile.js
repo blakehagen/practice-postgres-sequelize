@@ -188,7 +188,6 @@ function changeEvent(event) {
 }
 
 function startBrowserSync() {
-  console.log('browserSync Active? ', browserSync.active);
   if (args.nosync || browserSync.active) {
     return;
   }
@@ -208,12 +207,11 @@ function startBrowserSync() {
   gulp.watch([config.less, config.css, config.appJS, config.htmlTemplates], ['inject', browserSync.reload])
     .on('change', function (event) {
       changeEvent(event);
-      console.log('hi');
     });
 
   var options = {
     proxy: 'localhost:' +  port,
-    port: 3000,
+    port: 3300,
     files: [config.public + '**/*.*'],
     injectChanges: true,
     logFileChanges: true,

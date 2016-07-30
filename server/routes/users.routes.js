@@ -1,5 +1,5 @@
 'use strict';
-var userCtrl = require('../controllers/user.controller');
+const userCtrl = require('../controllers/user.controller');
 
 module.exports = (app) => {
 

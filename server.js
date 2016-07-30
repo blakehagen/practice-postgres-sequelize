@@ -4,14 +4,12 @@
 const babel       = require('babel-core').transform('code');
 const express     = require('./server/config/express.js');
 const environment = process.env.NODE_ENV;
-require('./server/config/db.js')();
 
 // RUN EXPRESS //
 const app = express();
-//
-// API TEST ROUTE //
-require('./server/routes/users.routes')(app);
 
+// ROUTES //
+require('./server/routes/users.routes')(app);
 
 app.get('/api/v1/test', (req, res) => {
   res.status(200).send('Light \'em up! We good to go!');

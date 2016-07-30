@@ -7,9 +7,7 @@ angular.module('pgPractice').controller('homeCtrl', function (mainService) {
   home.formError   = false;
   home.serverError = false;
 
-
   home.addUser = function (isValid) {
-
     if (!isValid) {
       home.formError = true;
       return;
@@ -17,13 +15,13 @@ angular.module('pgPractice').controller('homeCtrl', function (mainService) {
     home.submitted = true;
     home.formError = false;
 
-    mainService.addNewUser(home.newUser).then(function (response) {
+    mainService.addNewUser(home.newUser).then(function () {
       home.serverError       = false;
       home.newUser.firstName = '';
       home.newUser.lastName  = '';
       home.newUser.email     = '';
     })
-      .catch(function (err) {
+      .catch(function () {
         home.serverError = true;
       });
   };

@@ -1,6 +1,6 @@
 <section class="page-wrap">
   <section class="row">
-    <form name="userForm" novalidate>
+    <form name="userForm" novalidate autocomplete="off">
 
       <div class="input-container">
         <div class="title">
@@ -52,7 +52,7 @@
           <p>Please Complete Form</p>
         </div>
         <div ng-if="home.serverError" class="err">
-          <p>Email already in use. Try again.</p>
+          <p>Email address in use. Try again.</p>
         </div>
       </div>
     </form>
